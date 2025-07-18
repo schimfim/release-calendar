@@ -1,5 +1,18 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
+import { Amplify } from "aws-amplify";
+import { generateClient } from "aws-amplify/data";
+import type { Schema } from "../amplify/data/resource";
+
+// Try to configure Amplify, but don't fail if outputs don't exist
+try {
+  const outputs = await import("../amplify_outputs.json");
+  Amplify.configure(outputs.default);
+} catch (error) {
+  console.log("Amplify outputs not found - using static data only");
+}
+
+const client = generateClient<Schema>();
 
 interface SoftwareRelease {
   id: string;
@@ -10,7 +23,7 @@ interface SoftwareRelease {
 }
 
 function App() {
-  const [releases] = useState<SoftwareRelease[]>([
+  const [releases, setReleases] = useState<SoftwareRelease[]>([
     {
       id: "1",
       mainVersion: "2.1.0",
@@ -61,6 +74,28 @@ function App() {
       released: true,
     },
   ]);
+
+  // Optional: Load data from Amplify if available
+  useEffect(() => {
+    const loadAmplifyData = async () => {
+      try {
+        const { data: amplifyReleases } = await client.models.SoftwareRelease.list();
+        if (amplifyReleases && amplifyReleases.length > 0) {
+          setReleases(amplifyReleases.map(release => ({
+            id: release.id,
+            mainVersion: release.mainVersion,
+            goLiveDate: release.goLiveDate,
+            frameworkVersion: release.frameworkVersion,
+            released: release.released,
+          })));
+        }
+      } catch (error) {
+        console.log("Using static demo data - Amplify data not available");
+      }
+    };
+
+    loadAmplifyData();
+  }, []);
 
   return (
     <main>
