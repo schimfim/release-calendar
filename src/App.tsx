@@ -1,16 +1,9 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import { Amplify } from "aws-amplify";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "../amplify/data/resource";
 
-// Try to configure Amplify, but don't fail if outputs don't exist
-try {
-  const outputs = await import("../amplify_outputs.json");
-  Amplify.configure(outputs.default);
-} catch (error) {
-  console.log("Amplify outputs not found - using static data only");
-}
+// Amplify is configured in main.tsx
 
 const client = generateClient<Schema>();
 

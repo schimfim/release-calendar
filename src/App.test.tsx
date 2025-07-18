@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest'
 import { render, screen } from '@testing-library/react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 // Mock the Amplify imports to avoid issues in tests
 vi.mock('aws-amplify', () => ({
@@ -21,7 +21,7 @@ vi.mock('aws-amplify/data', () => ({
 
 // Create a test version of the App component without top-level await
 function TestApp() {
-  const [releases, setReleases] = useState([
+  const [releases] = useState([
     {
       id: "1",
       mainVersion: "2.1.0",
