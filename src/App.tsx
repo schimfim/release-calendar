@@ -83,10 +83,10 @@ function App() {
         if (amplifyReleases && amplifyReleases.length > 0) {
           setReleases(amplifyReleases.map(release => ({
             id: release.id,
-            mainVersion: release.mainVersion,
-            goLiveDate: release.goLiveDate,
-            frameworkVersion: release.frameworkVersion,
-            released: release.released,
+            mainVersion: release.mainVersion ?? '',
+            goLiveDate: release.goLiveDate ?? '',
+            frameworkVersion: release.frameworkVersion ?? '',
+            released: release.released ?? false,
           })));
         }
       } catch (error) {
