@@ -90,6 +90,11 @@ function App() {
     loadAmplifyData();
   }, []);
 
+  // Sort releases by goLiveDate in descending order (newest first)
+  const sortedReleases = [...releases].sort((a, b) => 
+    new Date(b.goLiveDate).getTime() - new Date(a.goLiveDate).getTime()
+  );
+
   return (
     <main>
       <h1>Software Releases</h1>
@@ -104,7 +109,7 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            {releases.map((release) => (
+            {sortedReleases.map((release) => (
               <tr key={release.id}>
                 <td>{release.mainVersion}</td>
                 <td>{release.goLiveDate}</td>
