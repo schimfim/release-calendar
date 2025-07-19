@@ -112,3 +112,185 @@ h1 {
   font-size: 2.5rem;
   font-weight: 700;
 }
+
+/* Create Form Styles */
+.create-section {
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.create-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.create-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.create-form {
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.form-input {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  accent-color: #667eea;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.edit-button {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.edit-button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.delete-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-button:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.save-button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.save-button:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.cancel-button {
+  background: #6b7280;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.cancel-button:hover {
+  background: #4b5563;
+  transform: translateY(-1px);
+}
+
+/* Edit Input Styles */
+.edit-input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: border-color 0.2s ease;
+}
+
+.edit-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .releases-table {
+    min-width: 400px;
+  }
+  
+  .releases-table th,
+  .releases-table td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
